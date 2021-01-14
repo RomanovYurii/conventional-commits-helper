@@ -1,0 +1,19 @@
+{
+  "name": "supportingTools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "commit": "node commit.js",
+    "generate": "node generate.js"
+  },
+  "keywords": [],
+  "author": "Yurii Romanov",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.20",
+    "prompts": "^2.4.0"
+  }
+}
