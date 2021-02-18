@@ -1,7 +1,8 @@
 const prompts = require('prompts');
 const { exec } = require('child_process');
 require('colors');
-require('dotenv').config();
+require('dotenv')
+  .config();
 
 const author = `Author: ${process.env.USER_NAME}`;
 const commitTypes = [
@@ -76,14 +77,22 @@ export default makeStyles(
 );`;
     case `${componentName}.stories.js`:
       return `import Component from '.';
-
-const name = 'components/${componentName}';
-
-const stories = {
-  defaultView: {},
+export default {
+  title: 'components/${componentName}',
+  component: Component,
+  argTypes: {
+    // Hide next in controls tab
+  },
 };
 
-export { stories, name, Component };`;
+const defaultView = Component.bind({});
+
+defaultView.args = {};
+
+export {
+  defaultView,
+};
+`;
     case `${componentName}.messages.js`:
       return `import { defineMessages } from 'react-intl';
 
@@ -99,7 +108,8 @@ ${componentName}.propTypes = {};
 ${componentName}.defaultProps = {};
 
 export default ${componentName};`;
-  }
+    default:
+  };
 };
 
 module.exports = {
